@@ -137,6 +137,7 @@ def buildHuffmanTreeHelp(tree_prob, prob):
     prob.pop(len(prob) - 1)
 
     t = el1
+   
     swap = 0
     if el1[1] >= el2[1]:
         el1 = el2
@@ -151,11 +152,8 @@ def buildHuffmanTreeHelp(tree_prob, prob):
     tree_prob.append(el1) 
     tree_prob.append(el2)
 
-    print(tree_prob)
-
     prob.insert(0, new_el + (len(tree_prob) - 2, len(tree_prob) - 1))
     prob = sorted(prob, key=lambda x: x[1], reverse=1)
-    print(prob)
 
     return buildHuffmanTreeHelp(tree_prob, prob)
 
@@ -212,6 +210,7 @@ def main():
 
     print("---------------------------------------------------------Huffman---------------------------------------------------------")
     tree_prob = []
+
     print(list(prob))
     buildHuffmanTreeHelp(tree_prob, list(prob))
     root = Node(len(tree_prob)-1)
